@@ -1,0 +1,8 @@
+{
+  "name": "@camilaprav/filterclone",
+  "version": "1.0.0",
+  "description": "Tiny, zero-dependency JavaScript function for selectively deep-cloning and/or modifying the cloned DOM subtree",
+  "main": "filterclone.js",
+  "author": "Camila Prá",
+  "license": "ISC"
+}
