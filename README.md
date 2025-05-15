@@ -8,6 +8,8 @@ It applies a filter function to control which nodes are cloned and included in t
 - Recursively clones DOM nodes with filtering logic
 - Non-mutating: original DOM remains untouched
 - Super lightweight and framework-agnostic
+- Supports iframe content cloning (same-origin only)
+- Optional `nothrow` argument to suppress errors during filtering (defaults to true)
 
 ## Installation
 
@@ -42,10 +44,12 @@ The example above clones the body excluding all `<script>` tags.
 
 ## API
 
-### `filterclone(root, filterFn)`
+### `filterclone(root, filterFn, iframes?, nothrow = true)`
 
 - **`root`**: `Node` - The root of the DOM subtree to clone.
-- **`filterFn`**: `(node: Node, original: Node) => Node | falsy` - A function called on each node (including root) with its clone and original. Return the clone (or a modified version) to keep it, or falsy to exclude it from the final tree. Anything else will throw.
+- **`filterFn`**: `(node: Node, original: Node) => Node | falsy` - A function called on each node (including root) with its clone and original. Return the clone (or a modified version) to keep it, or falsy to exclude it from the final tree. Anything else will throw (regardless of `nothrow` in this case).
+- **`iframes`** *(optional)*: `boolean` - If `true`, attempts to clone contents of same-origin iframes (wrapping them in a div instead).
+- **`nothrow`** *(optional)*: `boolean` (default: `true`) - If `true`, suppresses clone errors during filtering and logs warnings instead.
 
 Returns: A cloned subtree root node, or `null` if the root itself was filtered out.
 
