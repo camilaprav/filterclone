@@ -1,8 +1,9 @@
 {
   "name": "@camilaprav/filterclone",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Tiny, zero-dependency JavaScript function for selectively deep-cloning and/or modifying the cloned DOM subtree",
   "main": "filterclone.js",
+  "browser": "filterclone.js",
   "repository": {
     "type": "git",
     "url": "git@githubcom:camilaprav/filterclone.git"
